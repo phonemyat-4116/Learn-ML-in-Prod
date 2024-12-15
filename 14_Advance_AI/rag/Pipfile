@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+
+[dev-packages]
+pypdf = "*"
+aiofiles = "*"
+python-multipart = "*"
+transformers = "==4.42.4"
+qdrant-client = "*"
+ipykernel = "*"
+fastembed = "*"
+fastapi = "*"
+streamlit = "*"
+numpy = "==1.24.4"
+openai = "*"
+uvicorn = "*"
+torch = "*"
+
+[requires]
+python_version = "3.10"

@@ -1,0 +1,40 @@
+version: '3.7'
+
+volumes: 
+  grafana_data: {}
+
+networks:
+  front-tier:
+  back-tier:
+
+services:
+  postgres:
+    image: postgres:14.0
+    restart: always
+    environment:
+        POSTGRES_PASSWORD: tharhtet
+        POSTGRES_DB: test_db
+
+    ports:
+      - "5432:5432"
+    networks:
+      - back-tier
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - back-tier
+      - front-tier  
+
+  grafana:
+    image: grafana/grafana-enterprise
+    user: "472"
+    ports:
+      - "3000:3000"
+    networks:
+      - back-tier
+      - front-tier
+    restart: always
